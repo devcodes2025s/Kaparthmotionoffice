@@ -1,5 +1,8 @@
 // Kaparth Motion Website JavaScript
 document.addEventListener('DOMContentLoaded', function() {
+    // Force visibility of all sections first
+    ensureSectionsVisible();
+    
     // Initialize all functionality
     initPreloader();
     initNavigation();
@@ -11,20 +14,161 @@ document.addEventListener('DOMContentLoaded', function() {
     initTypingAnimation();
     initSmoothScrolling();
     initParallaxEffects();
+    initDarkMode();
+    initCookieConsent();
+    initLiveChat();
+    initLazyLoading();
+    initPerformanceOptimizations();
 });
 
-// Preloader
+// Ensure all sections are visible
+function ensureSectionsVisible() {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.style.display = 'block';
+        section.style.opacity = '1';
+        section.style.visibility = 'visible';
+        section.style.transform = 'none';
+    });
+    
+    // Also ensure main content containers are visible
+    const containers = document.querySelectorAll('.container');
+    containers.forEach(container => {
+        container.style.display = 'block';
+        container.style.opacity = '1';
+        container.style.visibility = 'visible';
+    });
+    
+    console.log('All sections forced to be visible');
+}
+
+// Simple Corner Percentage Loader with K+M Transition
 function initPreloader() {
     const preloader = document.getElementById('preloader');
+    const loaderPercentage = document.getElementById('loaderPercentage');
+    const brandName = document.getElementById('brandName');
+    const transitionLetters = document.getElementById('transitionLetters');
     
+    if (!preloader || !loaderPercentage) return;
+    
+    let progress = 0;
+    const progressDuration = 2200; // 2.2 seconds for percentage loading
+    const transitionDuration = 800; // 0.8 seconds for letter transition
+    const interval = 40; // Update every 40ms for smoother animation
+    const increment = 100 / (progressDuration / interval);
+    
+    // Ensure body doesn't scroll during loading
+    document.body.style.overflow = 'hidden';
+    
+    // Smooth percentage counter
+    const updateProgress = () => {
+        progress += increment + (Math.random() * 2 - 1); // Small random variation
+        progress = Math.min(progress, 100);
+        
+        loaderPercentage.textContent = Math.floor(progress) + '%';
+        
+        if (progress < 100) {
+            setTimeout(updateProgress, interval);
+        } else {
+            // Ensure it shows 100% for a moment
+            loaderPercentage.textContent = '100%';
+            setTimeout(startLetterTransition, 200);
+        }
+    };
+    
+    // Start letter transition animation
+    const startLetterTransition = () => {
+        if (brandName) {
+            // Start the letter transition
+            brandName.classList.add('start-transition');
+            
+            // Hide percentage during transition
+            if (loaderPercentage) {
+                loaderPercentage.style.animation = 'fadeOut 0.3s ease forwards';
+            }
+            
+            // After letter animations complete, finish loading
+            setTimeout(completeLoading, transitionDuration); // 1 second transition
+        } else {
+            completeLoading();
+        }
+    };
+    
+    // Complete loading and hide preloader
+    const completeLoading = () => {
+        preloader.classList.add('hide');
+        document.body.style.overflow = 'visible';
+        
+        // Remove preloader from DOM after transition
+        setTimeout(() => {
+            if (preloader.parentNode) {
+                preloader.remove();
+            }
+            
+            // Add entrance animation to main content
+            initMainContentEntrance();
+        }, 500);
+    };
+    
+    // Add smooth entrance animation to main content
+    const initMainContentEntrance = () => {
+        const heroSection = document.querySelector('.hero');
+        const header = document.querySelector('.header');
+        
+        if (heroSection) {
+            heroSection.style.opacity = '0';
+            heroSection.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                heroSection.style.transition = 'opacity 1s ease, transform 1s ease';
+                heroSection.style.opacity = '1';
+                heroSection.style.transform = 'translateY(0)';
+            }, 100);
+        }
+        
+        if (header) {
+            header.style.opacity = '0';
+            setTimeout(() => {
+                header.style.transition = 'opacity 0.8s ease';
+                header.style.opacity = '1';
+            }, 200);
+        }
+        
+        // Stagger reveal other sections
+        const sections = document.querySelectorAll('section:not(.hero)');
+        sections.forEach((section, index) => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            }, 400 + (index * 100));
+        });
+    };
+    
+    // Start loading after a short delay
+    setTimeout(() => {
+        updateProgress();
+    }, 100);
+    
+    // Fallback: ensure loading completes even if something goes wrong
+    setTimeout(() => {
+        if (!preloader.classList.contains('hide')) {
+            completeLoading();
+        }
+    }, 3500); // Maximum 3.5 seconds as safety fallback
+    
+    // Also complete on window load if it happens first
     window.addEventListener('load', () => {
         setTimeout(() => {
-            preloader.classList.add('hide');
-            // Remove preloader from DOM after animation
-            setTimeout(() => {
-                preloader.remove();
-            }, 500);
-        }, 1000);
+            if (!preloader.classList.contains('hide') && progress >= 50) {
+                progress = 100;
+                loaderPercentage.textContent = '100%';
+                setTimeout(startLetterTransition, 50);
+            }
+        }, 800); // Minimum 0.8 seconds display time
     });
 }
 
@@ -88,6 +232,10 @@ function initScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                // Ensure element is visible
+                entry.target.style.opacity = '1';
+                entry.target.style.visibility = 'visible';
+                entry.target.style.display = 'block';
                 
                 // Trigger counter animation when stats section is visible
                 if (entry.target.querySelector('.stat-number')) {
@@ -97,12 +245,25 @@ function initScrollAnimations() {
         });
     }, observerOptions);
 
-    // Observe all sections and animated elements
+    // Observe all sections and animated elements but ensure they're visible first
     const sections = document.querySelectorAll('section');
     const animatedElements = document.querySelectorAll('.service-card, .portfolio-item, .team-member, .contact-item');
     
-    sections.forEach(section => observer.observe(section));
-    animatedElements.forEach(element => observer.observe(element));
+    // Make sure all sections are visible immediately
+    sections.forEach(section => {
+        section.style.opacity = '1';
+        section.style.visibility = 'visible';
+        section.style.display = 'block';
+        observer.observe(section);
+    });
+    
+    // Make sure all animated elements are visible immediately
+    animatedElements.forEach(element => {
+        element.style.opacity = '1';
+        element.style.visibility = 'visible';
+        element.style.display = 'block';
+        observer.observe(element);
+    });
 }
 
 // Portfolio Filter
@@ -575,5 +736,265 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Dark Mode Functionality
+function initDarkMode() {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+    
+    // Ensure body always has a theme class - default to light mode
+    if (!body.classList.contains('light-mode') && !body.classList.contains('dark-mode')) {
+        body.classList.add('light-mode');
+    }
+    
+    // Check for saved theme or default to light mode
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    
+    // Remove any existing theme classes and apply the correct one
+    body.classList.remove('light-mode', 'dark-mode');
+    body.classList.add(savedTheme + '-mode');
+    
+    updateThemeIcon(savedTheme);
+    
+    themeToggle.addEventListener('click', () => {
+        if (body.classList.contains('light-mode')) {
+            body.classList.remove('light-mode');
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+            updateThemeIcon('dark');
+        } else {
+            body.classList.remove('dark-mode');
+            body.classList.add('light-mode');
+            localStorage.setItem('theme', 'light');
+            updateThemeIcon('light');
+        }
+    });
+    
+    function updateThemeIcon(theme) {
+        themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+}
+
+// Cookie Consent Functionality
+function initCookieConsent() {
+    const cookieConsent = document.getElementById('cookieConsent');
+    const cookieAccept = document.getElementById('cookieAccept');
+    const cookieDecline = document.getElementById('cookieDecline');
+    
+    // Check if user has already made a choice
+    if (!localStorage.getItem('cookieConsent')) {
+        setTimeout(() => {
+            cookieConsent.style.display = 'block';
+            cookieConsent.classList.add('show');
+        }, 2000);
+    }
+    
+    cookieAccept.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'accepted');
+        hideCookieConsent();
+    });
+    
+    cookieDecline.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'declined');
+        hideCookieConsent();
+    });
+    
+    function hideCookieConsent() {
+        cookieConsent.classList.remove('show');
+        setTimeout(() => {
+            cookieConsent.style.display = 'none';
+        }, 300);
+    }
+}
+
+// Live Chat Functionality
+function initLiveChat() {
+    const chatWidget = document.getElementById('chatWidget');
+    const chatButton = document.getElementById('chatButton');
+    const chatWindow = document.getElementById('chatWindow');
+    const chatClose = document.getElementById('chatClose');
+    const chatInput = document.getElementById('chatInput');
+    const chatSend = document.getElementById('chatSend');
+    const chatBody = chatWindow.querySelector('.chat-body');
+    const chatNotification = document.getElementById('chatNotification');
+    
+    let chatOpen = false;
+    
+    chatButton.addEventListener('click', () => {
+        toggleChat();
+    });
+    
+    chatClose.addEventListener('click', () => {
+        toggleChat();
+    });
+    
+    chatSend.addEventListener('click', () => {
+        sendMessage();
+    });
+    
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+    
+    function toggleChat() {
+        chatOpen = !chatOpen;
+        chatWindow.style.display = chatOpen ? 'flex' : 'none';
+        chatNotification.style.display = chatOpen ? 'none' : 'block';
+    }
+    
+    function sendMessage() {
+        const message = chatInput.value.trim();
+        if (message) {
+            addMessage(message, 'user');
+            chatInput.value = '';
+            
+            // Simulate bot response
+            setTimeout(() => {
+                const responses = [
+                    "Thanks for your message! We'll get back to you soon.",
+                    "How can I help you with your project?",
+                    "Feel free to tell us more about your requirements.",
+                    "Our team will review your inquiry and respond shortly."
+                ];
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                addMessage(randomResponse, 'bot');
+            }, 1000);
+        }
+    }
+    
+    function addMessage(text, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `chat-message ${sender}-message`;
+        messageDiv.innerHTML = `<p>${text}</p>`;
+        chatBody.appendChild(messageDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+}
+
+// Lazy Loading for Images
+function initLazyLoading() {
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+}
+
+// Performance Optimizations
+function initPerformanceOptimizations() {
+    // Optimize animations for reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.style.setProperty('--animation-duration', '0.01ms');
+    }
+    
+    // Prefetch important resources
+    const prefetchLinks = [
+        '/favicon.ico',
+        '/images/og-image.jpg'
+    ];
+    
+    prefetchLinks.forEach(href => {
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = href;
+        document.head.appendChild(link);
+    });
+    
+    // Critical CSS inlining for above-the-fold content
+    const criticalStyles = `
+        .preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff; z-index: 9999; }
+        .header { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; }
+        .hero { min-height: 100vh; display: flex; align-items: center; }
+    `;
+    
+    const style = document.createElement('style');
+    style.textContent = criticalStyles;
+    document.head.insertBefore(style, document.head.firstChild);
+}
+
+// Enhanced Scroll Animations with Intersection Observer
+function initScrollAnimations() {
+    const animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        animationObserver.observe(el);
+    });
+}
+
+// SEO and Analytics
+function initSEOOptimizations() {
+    // Add structured data for breadcrumbs
+    const breadcrumbData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://kaparth-motion.com/"
+            }
+        ]
+    };
+    
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(breadcrumbData);
+    document.head.appendChild(script);
+    
+    // Add meta description dynamically based on page section
+    const updateMetaDescription = () => {
+        const currentSection = getCurrentSection();
+        const descriptions = {
+            home: "Professional web development agency - Kaparth Motion creates stunning websites and digital solutions",
+            about: "Learn about Kaparth Motion - Expert web developers with 5+ years experience",
+            services: "Web development services - Responsive websites, mobile apps, UI/UX design by Kaparth Motion",
+            portfolio: "View our portfolio - Successful web development projects by Kaparth Motion",
+            contact: "Contact Kaparth Motion - Get a quote for your web development project"
+        };
+        
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (descriptions[currentSection]) {
+            metaDesc.content = descriptions[currentSection];
+        }
+    };
+    
+    window.addEventListener('scroll', updateMetaDescription);
+}
+
+function getCurrentSection() {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollPos = window.scrollY + 100;
+    
+    for (const section of sections) {
+        if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+            return section.id;
+        }
+    }
+    return 'home';
+}
 
 console.log('Kaparth Motion website loaded successfully! 🚀');

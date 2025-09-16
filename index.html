@@ -3,17 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaparth Motion - Website Development Agency</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Kaparth Motion - Professional Web Development & Digital Solutions Agency</title>
+    <meta name="description" content="Kaparth Motion is a leading web development agency specializing in responsive websites, mobile apps, UI/UX design, and digital solutions. Transform your business with our expert development services.">
+    <meta name="keywords" content="web development, mobile app development, UI/UX design, responsive websites, e-commerce solutions, digital agency, Kaparth Motion, website design, front-end development, back-end development">
+    <meta name="author" content="Kaparth Motion">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kaparth-motion.com/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Kaparth Motion - Professional Web Development Agency">
+    <meta property="og:description" content="Transform your digital presence with our expert web development services. We create stunning, responsive websites and mobile applications.">
+    <meta property="og:image" content="https://kaparth-motion.com/images/og-image.jpg">
+    <meta property="og:url" content="https://kaparth-motion.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kaparth Motion">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kaparth Motion - Professional Web Development Agency">
+    <meta name="twitter:description" content="Transform your digital presence with our expert web development services. We create stunning, responsive websites and mobile applications.">
+    <meta name="twitter:image" content="https://kaparth-motion.com/images/twitter-card.jpg">
+    <meta name="twitter:site" content="@KaparthMotion">
+    
+    <!-- Additional SEO Tags -->
+    <meta name="theme-color" content="#6366f1">
+    <meta name="msapplication-TileColor" content="#6366f1">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Kaparth Motion",
+        "url": "https://kaparth-motion.com",
+        "logo": "https://kaparth-motion.com/images/logo.png",
+        "description": "Professional web development agency specializing in responsive websites, mobile apps, and digital solutions",
+        "foundingDate": "2020",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-555-123-4567",
+            "contactType": "Customer Service",
+            "email": "hello@kaparth-motion.com"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Tech Street, Suite 100",
+            "addressLocality": "Innovation City",
+            "addressRegion": "IC",
+            "postalCode": "12345",
+            "addressCountry": "US"
+        },
+        "sameAs": [
+            "https://www.facebook.com/KaparthMotion",
+            "https://www.twitter.com/KaparthMotion",
+            "https://www.linkedin.com/company/kaparth-motion",
+            "https://github.com/KaparthMotion"
+        ],
+        "serviceType": [
+            "Web Development",
+            "Mobile App Development", 
+            "UI/UX Design",
+            "E-commerce Solutions",
+            "SEO Optimization"
+        ]
+    }
+    </script>
 </head>
-<body>
-    <!-- Preloader -->
+<body class="light-mode"  data-theme="light">
+    <!-- Simple Corner Percentage Loader -->
     <div class="preloader" id="preloader">
-        <div class="loader">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
+        <div class="loader-container">
+            <div class="brand-name" id="brandName">
+                <span class="word kaparth">
+                    <span class="letter k">K</span><span class="letter">A</span><span class="letter">P</span><span class="letter">A</span><span class="letter">R</span><span class="letter">T</span><span class="letter">H</span>
+                </span>
+                <span class="word motion">
+                    <span class="letter m">M</span><span class="letter">O</span><span class="letter">T</span><span class="letter">I</span><span class="letter">O</span><span class="letter">N</span><span class="letter period">.</span>
+                </span>
+            </div>
+            <div class="loader-percentage" id="loaderPercentage">0%</div>
+        </div>
+        
+        <!-- K and M transition elements -->
+        <div class="transition-letters" id="transitionLetters">
+            <span class="transition-k">K</span>
+            <span class="transition-m">M</span>
         </div>
     </div>
 
@@ -22,42 +112,50 @@
         <nav class="navbar">
             <div class="container">
                 <div class="nav-brand">
-                    <a href="#home" class="logo">
+                    <a href="#home" class="logo" aria-label="Kaparth Motion Home">
                         <span class="logo-icon">&lt;/&gt;</span>
                         <span class="logo-text">Kaparth Motion</span>
                     </a>
                 </div>
-                <ul class="nav-menu" id="nav-menu">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link">Home</a>
+                <ul class="nav-menu" id="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="#home" class="nav-link" role="menuitem">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link">About</a>
+                    <li class="nav-item" role="none">
+                        <a href="#about" class="nav-link" role="menuitem">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#services" class="nav-link">Services</a>
+                    <li class="nav-item" role="none">
+                        <a href="#services" class="nav-link" role="menuitem">Services</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#portfolio" class="nav-link">Portfolio</a>
+                    <li class="nav-item" role="none">
+                        <a href="#portfolio" class="nav-link" role="menuitem">Portfolio</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#team" class="nav-link">Team</a>
+                    <li class="nav-item" role="none">
+                        <a href="#team" class="nav-link" role="menuitem">Team</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">Contact</a>
+                    <li class="nav-item" role="none">
+                        <a href="#contact" class="nav-link" role="menuitem">Contact</a>
                     </li>
                 </ul>
-                <div class="hamburger" id="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+                <div class="nav-controls">
+                    <!-- Hamburger Menu -->
+                    <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
                 </div>
             </div>
         </nav>
+        
+        <!-- Dark Mode Toggle - Fixed Corner Position -->
+        <button class="theme-toggle theme-toggle-corner" id="themeToggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero animate-on-scroll" role="banner">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -70,17 +168,17 @@
                         we deliver cutting-edge web solutions that elevate your brand and engage your audience.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#portfolio" class="btn btn-primary">View Our Work</a>
-                        <a href="#contact" class="btn btn-outline">Get Started</a>
+                        <a href="#portfolio" class="btn btn-primary" aria-label="View our portfolio">View Our Work</a>
+                        <a href="#contact" class="btn btn-outline" aria-label="Get started with your project">Get Started</a>
                     </div>
                 </div>
-                <div class="hero-visual">
+                <div class="hero-visual" aria-hidden="true">
                     <div class="code-editor">
                         <div class="editor-header">
                             <div class="editor-controls">
-                                <span class="control close"></span>
-                                <span class="control minimize"></span>
-                                <span class="control maximize"></span>
+                                <span class="control close" aria-label="Close"></span>
+                                <span class="control minimize" aria-label="Minimize"></span>
+                                <span class="control maximize" aria-label="Maximize"></span>
                             </div>
                             <div class="editor-title">index.html</div>
                         </div>
@@ -127,22 +225,22 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about animate-on-scroll" role="main">
         <div class="container">
-            <div class="section-header">
+            <header class="section-header">
                 <h2 class="section-title">About Kaparth Motion</h2>
                 <p class="section-subtitle">Passionate developers creating exceptional web experiences</p>
-            </div>
+            </header>
             <div class="about-content">
                 <div class="about-text">
-                    <div class="about-item">
+                    <article class="about-item">
                         <h3>Our Mission</h3>
                         <p>To empower businesses with cutting-edge web solutions that drive growth, enhance user experience, and establish strong digital presence in today's competitive landscape.</p>
-                    </div>
-                    <div class="about-item">
+                    </article>
+                    <article class="about-item">
                         <h3>Our Vision</h3>
                         <p>To be the leading web development agency that transforms ideas into digital reality, setting new standards for innovation, quality, and client satisfaction.</p>
-                    </div>
+                    </article>
                     <div class="about-item">
                         <h3>Our Values</h3>
                         <p>We believe in transparency, innovation, and excellence. Every project is approached with dedication, creativity, and a commitment to delivering results that exceed expectations.</p>
@@ -150,11 +248,11 @@
                 </div>
                 <div class="about-stats">
                     <div class="stat-item">
-                        <div class="stat-number" data-target="150">0</div>
+                        <div class="stat-number" data-target="50">0</div>
                         <div class="stat-label">Projects Completed</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" data-target="120">0</div>
+                        <div class="stat-number" data-target="35">0</div>
                         <div class="stat-label">Happy Clients</div>
                     </div>
                     <div class="stat-item">
@@ -182,79 +280,154 @@
                     <div class="service-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3 class="service-title">Web Development</h3>
-                    <p class="service-description">Custom websites built with modern technologies, optimized for performance and user experience.</p>
+                    <h3 class="service-title">Custom Web Development</h3>
+                    <p class="service-description">Full-stack web applications built with cutting-edge technologies for optimal performance and scalability.</p>
                     <ul class="service-features">
-                        <li>Responsive Design</li>
-                        <li>Modern Frameworks</li>
-                        <li>Performance Optimization</li>
-                        <li>Cross-browser Compatibility</li>
+                        <li>React.js & Next.js Development</li>
+                        <li>Node.js & Express Backend</li>
+                        <li>Database Design (MongoDB, PostgreSQL)</li>
+                        <li>API Development & Integration</li>
+                        <li>Cloud Deployment (AWS, Vercel)</li>
                     </ul>
+                    <div class="service-pricing">
+                        <span class="price">Starting from $2,500</span>
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3 class="service-title">Mobile Development</h3>
-                    <p class="service-description">Native and hybrid mobile applications that provide seamless user experiences across all devices.</p>
+                    <h3 class="service-title">Mobile App Development</h3>
+                    <p class="service-description">Cross-platform mobile applications with native performance and seamless user experiences.</p>
                     <ul class="service-features">
-                        <li>iOS & Android</li>
-                        <li>React Native</li>
-                        <li>Progressive Web Apps</li>
-                        <li>App Store Optimization</li>
+                        <li>React Native Development</li>
+                        <li>Flutter Applications</li>
+                        <li>Progressive Web Apps (PWA)</li>
+                        <li>App Store & Play Store Publishing</li>
+                        <li>Push Notifications & Analytics</li>
                     </ul>
+                    <div class="service-pricing">
+                        <span class="price">Starting from $3,500</span>
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-palette"></i>
                     </div>
                     <h3 class="service-title">UI/UX Design</h3>
-                    <p class="service-description">Beautiful, intuitive designs that enhance user engagement and drive conversions.</p>
+                    <p class="service-description">User-centered design solutions that combine aesthetics with functionality for exceptional user experiences.</p>
                     <ul class="service-features">
-                        <li>User Research</li>
-                        <li>Wireframing</li>
-                        <li>Prototyping</li>
-                        <li>Design Systems</li>
+                        <li>User Research & Persona Development</li>
+                        <li>Wireframing & Prototyping</li>
+                        <li>Design Systems & Style Guides</li>
+                        <li>Usability Testing & Optimization</li>
+                        <li>Figma & Adobe Creative Suite</li>
                     </ul>
+                    <div class="service-pricing">
+                        <span class="price">Starting from $1,500</span>
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
                     <h3 class="service-title">E-commerce Solutions</h3>
-                    <p class="service-description">Powerful online stores with secure payment processing and inventory management.</p>
+                    <p class="service-description">Complete e-commerce platforms with secure payment processing and inventory management systems.</p>
                     <ul class="service-features">
-                        <li>Custom E-commerce</li>
-                        <li>Payment Integration</li>
-                        <li>Inventory Management</li>
-                        <li>Analytics & Reporting</li>
+                        <li>Shopify & WooCommerce Development</li>
+                        <li>Custom E-commerce Platforms</li>
+                        <li>Payment Gateway Integration</li>
+                        <li>Inventory & Order Management</li>
+                        <li>Multi-vendor Marketplace Setup</li>
                     </ul>
+                    <div class="service-pricing">
+                        <span class="price">Starting from $4,000</span>
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-search"></i>
                     </div>
-                    <h3 class="service-title">SEO Optimization</h3>
-                    <p class="service-description">Comprehensive SEO strategies to improve your website's visibility and search rankings.</p>
+                    <h3 class="service-title">SEO & Digital Marketing</h3>
+                    <p class="service-description">Comprehensive SEO strategies and digital marketing solutions to boost your online presence and rankings.</p>
                     <ul class="service-features">
-                        <li>Technical SEO</li>
-                        <li>Content Optimization</li>
-                        <li>Local SEO</li>
-                        <li>Performance Monitoring</li>
+                        <li>Technical SEO Optimization</li>
+                        <li>Content Strategy & Creation</li>
+                        <li>Local SEO & Google My Business</li>
+                        <li>Social Media Management</li>
+                        <li>Analytics & Performance Tracking</li>
                     </ul>
+                    <div class="service-pricing">
+                        <span class="price">Starting from $800/month</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="service-title">Cloud Solutions & DevOps</h3>
+                    <p class="service-description">Scalable cloud infrastructure and DevOps solutions for reliable, high-performance applications.</p>
+                    <ul class="service-features">
+                        <li>AWS, Azure & Google Cloud Setup</li>
+                        <li>CI/CD Pipeline Implementation</li>
+                        <li>Docker & Kubernetes Deployment</li>
+                        <li>Server Monitoring & Maintenance</li>
+                        <li>Security & Backup Solutions</li>
+                    </ul>
+                    <div class="service-pricing">
+                        <span class="price">Starting from $1,200</span>
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-tools"></i>
                     </div>
-                    <h3 class="service-title">Maintenance & Support</h3>
-                    <p class="service-description">Ongoing support and maintenance to keep your website secure, updated, and performing optimally.</p>
+                    <h3 class="service-title">Website Maintenance & Support</h3>
+                    <p class="service-description">Ongoing maintenance and support services to keep your website secure, updated, and performing optimally.</p>
                     <ul class="service-features">
-                        <li>Security Updates</li>
-                        <li>Bug Fixes</li>
-                        <li>Content Updates</li>
-                        <li>24/7 Support</li>
+                        <li>Regular Security Updates</li>
+                        <li>Performance Monitoring</li>
+                        <li>Content Updates & Changes</li>
+                        <li>Bug Fixes & Troubleshooting</li>
+                        <li>24/7 Technical Support</li>
                     </ul>
+                    <div class="service-pricing">
+                        <span class="price">Starting from $200/month</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="service-title">Startup MVP Development</h3>
+                    <p class="service-description">Rapid prototyping and MVP development for startups to validate ideas and enter the market quickly.</p>
+                    <ul class="service-features">
+                        <li>Rapid Prototyping & Validation</li>
+                        <li>Lean Development Methodology</li>
+                        <li>Technical Consultation</li>
+                        <li>Scalable Architecture Planning</li>
+                        <li>Investor-Ready Presentations</li>
+                    </ul>
+                    <div class="service-pricing">
+                        <span class="price">Starting from $5,000</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="service-title">Training & Consulting</h3>
+                    <p class="service-description">Technical training and consulting services to empower your team with modern web development skills.</p>
+                    <ul class="service-features">
+                        <li>React & JavaScript Training</li>
+                        <li>Web Development Bootcamps</li>
+                        <li>Technical Architecture Review</li>
+                        <li>Code Review & Best Practices</li>
+                        <li>Team Mentoring Programs</li>
+                    </ul>
+                    <div class="service-pricing">
+                        <span class="price">Starting from $150/hour</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -285,12 +458,67 @@
                     </div>
                     <div class="portfolio-overlay">
                         <div class="portfolio-content">
-                            <h3>TechCorp Solutions</h3>
-                            <p>Modern corporate website with advanced features</p>
+                            <h3>TechFlow Solutions</h3>
+                            <p>Enterprise-level SaaS platform for project management and team collaboration</p>
+                            <div class="portfolio-details">
+                                <div class="project-info">
+                                    <span class="client">Client: TechFlow Inc.</span>
+                                    <span class="duration">Duration: 6 months</span>
+                                    <span class="team">Team: 5 developers</span>
+                                </div>
+                                <div class="project-results">
+                                    <span class="result">↗ 300% user engagement</span>
+                                    <span class="result">⚡ 50% faster load times</span>
+                                    <span class="result">💰 $2M revenue increase</span>
+                                </div>
+                            </div>
                             <div class="portfolio-tags">
-                                <span>React</span>
+                                <span>React.js</span>
                                 <span>Node.js</span>
+                                <span>PostgreSQL</span>
+                                <span>AWS</span>
+                                <span>Redux</span>
+                            </div>
+                            <div class="portfolio-actions">
+                                <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
+                                <a href="#" class="btn btn-sm btn-outline">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="ecommerce">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>E-commerce Platform</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-content">
+                            <h3>StyleHub Marketplace</h3>
+                            <p>Multi-vendor fashion e-commerce platform with advanced filtering and AI recommendations</p>
+                            <div class="portfolio-details">
+                                <div class="project-info">
+                                    <span class="client">Client: StyleHub Fashion</span>
+                                    <span class="duration">Duration: 8 months</span>
+                                    <span class="team">Team: 7 developers</span>
+                                </div>
+                                <div class="project-results">
+                                    <span class="result">🛒 500K+ active users</span>
+                                    <span class="result">📱 95% mobile conversion</span>
+                                    <span class="result">💳 $5M annual sales</span>
+                                </div>
+                            </div>
+                            <div class="portfolio-tags">
+                                <span>Next.js</span>
+                                <span>Shopify Plus</span>
+                                <span>Stripe</span>
                                 <span>MongoDB</span>
+                                <span>AI/ML</span>
+                            </div>
+                            <div class="portfolio-actions">
+                                <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
+                                <a href="#" class="btn btn-sm btn-outline">Live Site</a>
                             </div>
                         </div>
                     </div>
@@ -304,88 +532,30 @@
                     </div>
                     <div class="portfolio-overlay">
                         <div class="portfolio-content">
-                            <h3>FitTracker Pro</h3>
-                            <p>Fitness tracking mobile application</p>
+                            <h3>HealthTracker Pro</h3>
+                            <p>Comprehensive health and fitness tracking app with wearable integration and AI coaching</p>
+                            <div class="portfolio-details">
+                                <div class="project-info">
+                                    <span class="client">Client: FitLife Technologies</span>
+                                    <span class="duration">Duration: 10 months</span>
+                                    <span class="team">Team: 6 developers</span>
+                                </div>
+                                <div class="project-results">
+                                    <span class="result">📱 1M+ downloads</span>
+                                    <span class="result">⭐ 4.8 store rating</span>
+                                    <span class="result">🏆 App Store featured</span>
+                                </div>
+                            </div>
                             <div class="portfolio-tags">
                                 <span>React Native</span>
                                 <span>Firebase</span>
                                 <span>Redux</span>
+                                <span>HealthKit</span>
+                                <span>TensorFlow</span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="ecommerce">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder">
-                            <i class="fas fa-shopping-bag"></i>
-                            <span>E-commerce Store</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-content">
-                            <h3>Fashion Hub</h3>
-                            <p>Premium fashion e-commerce platform</p>
-                            <div class="portfolio-tags">
-                                <span>Shopify</span>
-                                <span>Vue.js</span>
-                                <span>Stripe</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder">
-                            <i class="fas fa-paint-brush"></i>
-                            <span>Creative Portfolio</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-content">
-                            <h3>Artist Showcase</h3>
-                            <p>Creative portfolio for digital artist</p>
-                            <div class="portfolio-tags">
-                                <span>WordPress</span>
-                                <span>CSS3</span>
-                                <span>GSAP</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="mobile">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder">
-                            <i class="fas fa-utensils"></i>
-                            <span>Food Delivery</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-content">
-                            <h3>QuickBite</h3>
-                            <p>Food delivery mobile application</p>
-                            <div class="portfolio-tags">
-                                <span>Flutter</span>
-                                <span>GraphQL</span>
-                                <span>PostgreSQL</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Analytics Dashboard</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-content">
-                            <h3>DataViz Pro</h3>
-                            <p>Advanced analytics dashboard</p>
-                            <div class="portfolio-tags">
-                                <span>Angular</span>
-                                <span>D3.js</span>
-                                <span>Express</span>
+                            <div class="portfolio-actions">
+                                <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
+                                <a href="#" class="btn btn-sm btn-outline">App Store</a>
                             </div>
                         </div>
                     </div>
@@ -409,13 +579,38 @@
                         </div>
                     </div>
                     <div class="member-info">
-                        <h3 class="member-name">Alex Johnson</h3>
-                        <p class="member-role">Lead Developer</p>
-                        <p class="member-bio">Full-stack developer with 8+ years of experience in modern web technologies.</p>
+                        <h3 class="member-name">Alex Rodriguez</h3>
+                        <p class="member-role">Founder & Lead Full-Stack Developer</p>
+                        <p class="member-bio">Passionate tech entrepreneur with 10+ years of experience building scalable web applications. Specialized in React, Node.js, and cloud architecture.</p>
+                        <div class="member-expertise">
+                            <h4>Expertise:</h4>
+                            <div class="expertise-tags">
+                                <span>React.js</span>
+                                <span>Node.js</span>
+                                <span>AWS</span>
+                                <span>GraphQL</span>
+                                <span>TypeScript</span>
+                            </div>
+                        </div>
+                        <div class="member-achievements">
+                            <div class="achievement">
+                                <i class="fas fa-trophy"></i>
+                                <span>Led 50+ successful projects</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>MS Computer Science, Stanford</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-award"></i>
+                                <span>AWS Certified Solutions Architect</span>
+                            </div>
+                        </div>
                         <div class="member-social">
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="https://linkedin.com/in/alexrodriguez" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/alexrodriguez" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://twitter.com/alexrodriguez" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="mailto:alex@kaparth-motion.com" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
@@ -427,12 +622,37 @@
                     </div>
                     <div class="member-info">
                         <h3 class="member-name">Sarah Chen</h3>
-                        <p class="member-role">UI/UX Designer</p>
-                        <p class="member-bio">Creative designer specializing in user-centered design and brand identity.</p>
+                        <p class="member-role">Senior UI/UX Designer & Design Lead</p>
+                        <p class="member-bio">Award-winning designer with 8+ years creating intuitive user experiences for Fortune 500 companies. Expert in user research, prototyping, and design systems.</p>
+                        <div class="member-expertise">
+                            <h4>Expertise:</h4>
+                            <div class="expertise-tags">
+                                <span>Figma</span>
+                                <span>User Research</span>
+                                <span>Design Systems</span>
+                                <span>Prototyping</span>
+                                <span>Adobe Creative Suite</span>
+                            </div>
+                        </div>
+                        <div class="member-achievements">
+                            <div class="achievement">
+                                <i class="fas fa-trophy"></i>
+                                <span>Webby Award Winner 2024</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>BFA Visual Design, RISD</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-award"></i>
+                                <span>Google UX Design Certificate</span>
+                            </div>
+                        </div>
                         <div class="member-social">
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+                            <a href="https://linkedin.com/in/sarahchen" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://dribbble.com/sarahchen" class="social-link" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+                            <a href="https://behance.net/sarahchen" class="social-link" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                            <a href="mailto:sarah@kaparth-motion.com" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
@@ -443,30 +663,38 @@
                         </div>
                     </div>
                     <div class="member-info">
-                        <h3 class="member-name">Michael Rodriguez</h3>
-                        <p class="member-role">Backend Developer</p>
-                        <p class="member-bio">Backend specialist with expertise in scalable architectures and cloud solutions.</p>
-                        <div class="member-social">
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-stack-overflow"></i></a>
+                        <h3 class="member-name">Michael Thompson</h3>
+                        <p class="member-role">Senior DevOps Engineer & Cloud Architect</p>
+                        <p class="member-bio">Cloud infrastructure specialist with 9+ years optimizing performance and scalability. Expert in containerization, CI/CD, and multi-cloud deployments.</p>
+                        <div class="member-expertise">
+                            <h4>Expertise:</h4>
+                            <div class="expertise-tags">
+                                <span>Docker</span>
+                                <span>Kubernetes</span>
+                                <span>AWS/Azure</span>
+                                <span>CI/CD</span>
+                                <span>Terraform</span>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="member-avatar">
-                        <div class="avatar-placeholder">
-                            <i class="fas fa-user"></i>
+                        <div class="member-achievements">
+                            <div class="achievement">
+                                <i class="fas fa-trophy"></i>
+                                <span>Optimized 100+ cloud deployments</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>BS Computer Engineering, MIT</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-award"></i>
+                                <span>Kubernetes Certified Administrator</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="member-info">
-                        <h3 class="member-name">Emily Davis</h3>
-                        <p class="member-role">Project Manager</p>
-                        <p class="member-bio">Experienced project manager ensuring smooth delivery and client satisfaction.</p>
                         <div class="member-social">
-                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                            <a href="https://linkedin.com/in/michaelthompson" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/michaelthompson" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://stackoverflow.com/users/michaelthompson" class="social-link" aria-label="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
+                            <a href="mailto:michael@kaparth-motion.com" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
@@ -479,7 +707,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Ready to start your next project? Let's talk!</p>
+                <p class="section-subtitle">Ready to start your next project? Let's discuss how we can help bring your vision to life!</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
@@ -488,8 +716,13 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Address</h3>
-                            <p>123 Tech Street, Suite 100<br>Innovation City, IC 12345</p>
+                            <h3>Our Office</h3>
+                            <p><strong>Kaparth Motion HQ</strong><br>
+                            Office 201, C 104, Vijay Nagar<br>
+                            Vasant Vihar Colony<br>
+                            Indore, Madhya Pradesh 452010<br>
+                            India</p>
+                            <p><em>Visitors welcome by appointment</em></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -497,8 +730,11 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Phone</h3>
-                            <p>+1 (555) 123-4567<br>+1 (555) 987-6543</p>
+                            <h3>Call Us</h3>
+                            <p><strong>Primary:</strong> +91 8858495105<br>
+                            <strong>WhatsApp:</strong> +91 8858495105<br>
+                            <strong>Support:</strong> +91 9876543210</p>
+                            <p><em>24/7 emergency support available</em></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -506,8 +742,11 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Email</h3>
-                            <p>hello@kaparth-motion.com<br>support@kaparth-motion.com</p>
+                            <h3>Email Us</h3>
+                            <p><strong>General Inquiries:</strong><br>hello@kaparth-motion.com<br>
+                            <strong>Business:</strong><br>business@kaparth-motion.com<br>
+                            <strong>Support:</strong><br>support@kaparth-motion.com<br>
+                            <strong>Careers:</strong><br>careers@kaparth-motion.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -515,44 +754,139 @@
                             <i class="fas fa-clock"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Hours</h3>
-                            <p>Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: 10:00 AM - 4:00 PM</p>
+                            <h3>Business Hours</h3>
+                            <p><strong>Monday - Friday:</strong><br>9:00 AM - 8:00 PM IST<br>
+                            <strong>Saturday:</strong><br>10:00 AM - 6:00 PM IST<br>
+                            <strong>Sunday:</strong><br>Emergency support only</p>
+                            <p><em>We work across multiple time zones</em></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Global Reach</h3>
+                            <p><strong>Serving clients in:</strong><br>
+                            🇮🇳 India • 🇺🇸 USA • 🇬🇧 UK<br>
+                            🇨🇦 Canada • 🇦🇺 Australia<br>
+                            🇩🇪 Germany • 🇫🇷 France</p>
+                            <p><em>Remote collaboration worldwide</em></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Let's Connect</h3>
+                            <div class="social-connect">
+                                <a href="https://linkedin.com/company/kaparth-motion" class="social-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                                <a href="https://github.com/kaparth-motion" class="social-link"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://twitter.com/kaparthmotion" class="social-link"><i class="fab fa-twitter"></i> Twitter</a>
+                                <a href="https://instagram.com/kaparthmotion" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form-container">
+                    <div class="form-header">
+                        <h3>Start Your Project</h3>
+                        <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                    </div>
                     <form class="contact-form" id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="text" name="firstName" placeholder="First Name" required>
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="lastName" placeholder="Last Name" required>
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="email" name="email" placeholder="Email Address" required>
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
                             </div>
                             <div class="form-group">
-                                <input type="tel" name="phone" placeholder="Phone Number">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="company">Company/Organization</label>
+                                <input type="text" id="company" name="company" placeholder="Your company name">
+                            </div>
+                            <div class="form-group">
+                                <label for="budget">Project Budget</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-5k">Under $5,000</option>
+                                    <option value="5k-10k">$5,000 - $10,000</option>
+                                    <option value="10k-25k">$10,000 - $25,000</option>
+                                    <option value="25k-50k">$25,000 - $50,000</option>
+                                    <option value="50k-plus">$50,000+</option>
+                                    <option value="discuss">Let's discuss</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <select name="service" required>
-                                <option value="">Select a Service</option>
-                                <option value="web-development">Web Development</option>
-                                <option value="mobile-development">Mobile Development</option>
+                            <label for="service">Primary Service Needed *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="custom-web-development">Custom Web Development</option>
+                                <option value="mobile-app-development">Mobile App Development</option>
                                 <option value="ui-ux-design">UI/UX Design</option>
-                                <option value="ecommerce">E-commerce Solutions</option>
-                                <option value="seo">SEO Optimization</option>
-                                <option value="maintenance">Maintenance & Support</option>
+                                <option value="ecommerce-solutions">E-commerce Solutions</option>
+                                <option value="seo-digital-marketing">SEO & Digital Marketing</option>
+                                <option value="cloud-devops">Cloud Solutions & DevOps</option>
+                                <option value="maintenance-support">Website Maintenance & Support</option>
+                                <option value="startup-mvp">Startup MVP Development</option>
+                                <option value="training-consulting">Training & Consulting</option>
+                                <option value="other">Other (please specify)</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <textarea name="message" placeholder="Tell us about your project..." rows="6" required></textarea>
+                            <label for="timeline">Project Timeline</label>
+                            <select id="timeline" name="timeline">
+                                <option value="">Select timeline</option>
+                                <option value="asap">ASAP (Rush project)</option>
+                                <option value="1-month">Within 1 month</option>
+                                <option value="2-3-months">2-3 months</option>
+                                <option value="3-6-months">3-6 months</option>
+                                <option value="6-months-plus">6+ months</option>
+                                <option value="flexible">I'm flexible</option>
+                            </select>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your project, goals, target audience, specific requirements, and any other details that would help us understand your needs..." rows="6" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter" id="newsletter">
+                                <span class="checkmark"></span>
+                                Subscribe to our newsletter for web development tips and updates
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label required">
+                                <input type="checkbox" name="privacy" id="privacy" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#" target="_blank">Privacy Policy</a> and <a href="#" target="_blank">Terms of Service</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Project Inquiry
+                        </button>
+                        <p class="form-note">
+                            <i class="fas fa-shield-alt"></i>
+                            Your information is secure and will never be shared with third parties
+                        </p>
                     </form>
                 </div>
             </div>
@@ -627,10 +961,67 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop">
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h4>🍪 We use cookies</h4>
+                <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="btn btn-outline cookie-decline" id="cookieDecline">Decline</button>
+                <button class="btn btn-primary cookie-accept" id="cookieAccept">Accept All</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-button" id="chatButton">
+            <i class="fas fa-comments"></i>
+            <span class="chat-notification" id="chatNotification">1</span>
+        </div>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h4>💬 Live Chat</h4>
+                <button class="chat-close" id="chatClose">&times;</button>
+            </div>
+            <div class="chat-body">
+                <div class="chat-message bot-message">
+                    <p>Hello! 👋 How can we help you today?</p>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your message..." id="chatInput">
+                <button class="chat-send" id="chatSend">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Performance Scripts -->
+    <script>
+        // Preload critical resources
+        const preloadImage = (src) => {
+            const img = new Image();
+            img.src = src;
+        };
+        
+        // Service Worker Registration for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => console.log('SW registered'))
+                    .catch(error => console.log('SW registration failed'));
+            });
+        }
+    </script>
+    
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Disallow certain directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /temp/
+
+# Allow important files
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Sitemap location
+Sitemap: https://kaparth-motion.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /

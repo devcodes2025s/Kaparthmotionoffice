@@ -2354,54 +2354,6 @@ body {
     font-size: 0.9rem;
 }
 
-.checkbox-label {
-    display: flex !important;
-    align-items: flex-start;
-    gap: 0.5rem;
-    cursor: pointer;
-    font-weight: normal !important;
-    font-size: 0.85rem !important;
-    line-height: 1.4;
-}
-
-.checkbox-label input[type="checkbox"] {
-    margin: 0;
-    width: auto;
-}
-
-.checkmark {
-    width: 18px;
-    height: 18px;
-    border: 2px solid var(--color-border);
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 1px;
-}
-
-.checkbox-label input[type="checkbox"]:checked + .checkmark {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
-}
-
-.checkbox-label input[type="checkbox"]:checked + .checkmark::after {
-    content: '✓';
-    color: var(--color-secondary);
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.checkbox-label a {
-    color: var(--color-primary);
-    text-decoration: none;
-}
-
-.checkbox-label a:hover {
-    text-decoration: underline;
-}
-
 .form-note {
     text-align: center;
     font-size: 0.8rem;

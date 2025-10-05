@@ -699,14 +699,6 @@ section {
     display: block !important;
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
 .btn {
     padding: 15px 35px;
     border-radius: var(--border-radius);
@@ -1132,7 +1124,7 @@ section.visible {
 }
 
 /* Portfolio Section */
-.portfolio {
+.testimonials {
     background: var(--color-background-alt);
 }
 
@@ -1155,13 +1147,13 @@ section.visible {
     transform: translateY(-2px);
 }
 
-.portfolio-grid {
+.testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
 }
 
-.portfolio-item {
+.testimonials-item {
     position: relative;
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -1170,25 +1162,25 @@ section.visible {
     animation: fadeInUp 0.8s ease;
 }
 
-.portfolio-item:nth-child(2) { animation-delay: 0.2s; }
-.portfolio-item:nth-child(3) { animation-delay: 0.4s; }
-.portfolio-item:nth-child(4) { animation-delay: 0.6s; }
-.portfolio-item:nth-child(5) { animation-delay: 0.8s; }
-.portfolio-item:nth-child(6) { animation-delay: 1s; }
+.testimonials-item:nth-child(2) { animation-delay: 0.2s; }
+.testimonials-item:nth-child(3) { animation-delay: 0.4s; }
+.testimonials-item:nth-child(4) { animation-delay: 0.6s; }
+.testimonials-item:nth-child(5) { animation-delay: 0.8s; }
+.testimonials-item:nth-child(6) { animation-delay: 1s; }
 
-.portfolio-item:hover {
+.testimonials-item:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: var(--shadow-lg);
 }
 
-.portfolio-image {
+.testimonials-image {
     height: 250px;
     background: var(--color-background-alt);
     position: relative;
     overflow: hidden;
 }
 
-.portfolio-placeholder {
+.testimonials-placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1198,17 +1190,17 @@ section.visible {
     transition: all var(--transition-normal);
 }
 
-.portfolio-placeholder i {
+.testimonials-placeholder i {
     font-size: 3rem;
     margin-bottom: 1rem;
     transition: transform var(--transition-normal);
 }
 
-.portfolio-item:hover .portfolio-placeholder i {
+.testimonials-item:hover .testimonials-placeholder i {
     transform: scale(1.2) rotate(10deg);
 }
 
-.portfolio-overlay {
+.testimonials-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -1220,27 +1212,27 @@ section.visible {
     transition: transform var(--transition-normal);
 }
 
-.portfolio-item:hover .portfolio-overlay {
+.testimonials-item:hover .testimonials-overlay {
     transform: translateY(0);
 }
 
-.portfolio-content h3 {
+.testimonials-content h3 {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
 }
 
-.portfolio-content p {
+.testimonials-content p {
     color: #cccccc;
     margin-bottom: 1rem;
 }
 
-.portfolio-tags {
+.testimonials-tags {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
 }
 
-.portfolio-tags span {
+.testimonials-tags span {
     background: var(--color-primary);
     color: var(--color-secondary);
     padding: 0.25rem 0.75rem;
@@ -1796,10 +1788,6 @@ section.visible {
         line-height: 1.1;
     }
 
-    .hero-buttons {
-        flex-direction: column;
-    }
-
     .section-title {
         font-size: clamp(2rem, 8vw, 2.5rem);
         letter-spacing: -0.02em;
@@ -2215,7 +2203,7 @@ body {
 .service-pricing .price {
     color: var(--color-primary);
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 }
 
 /* Enhanced Portfolio Cards */
